@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'view/view.ui'
 #
-# Created by: PyQt5 UI code generator 5.14.1
+# Created by: PyQt5 UI code generator 5.13.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -82,7 +82,7 @@ class Ui_MainWindow(object):
         self.clear_information_button.setText(_translate("MainWindow", "清除数据"))
         self.import_information_button.setText(_translate("MainWindow", "导入信息"))
         self.check_in_button.setText(_translate("MainWindow", "签到"))
-        self.export_information_button.setText(_translate("MainWindow", "导出信息"))
+        self.export_information_button.setText(_translate("MainWindow", "导出数据"))
         self.choose_class_button.setText(_translate("MainWindow", "选择班级"))
 
 
