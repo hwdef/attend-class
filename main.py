@@ -3,7 +3,7 @@ import sqlite3
 
 from view.view import Ui_MainWindow
 from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QMainWindow, QFileDialog
+from PyQt5.QtWidgets import QMainWindow, QFileDialog, QMessageBox
 import sys
 
 
@@ -16,6 +16,7 @@ class ui_view(QMainWindow, Ui_MainWindow):
         Ui_MainWindow.setupUi(self, MainWindow)
         super().setupUi(MainWindow)
         self.import_information_button.clicked.connect(self.choose_dir)
+        self.clear_information_button.clicked.connect(self.delete_data)
 
     def choose_dir(self):
         directory = QFileDialog.getExistingDirectory(self, "选取文件夹", "./")
@@ -39,6 +40,10 @@ class ui_view(QMainWindow, Ui_MainWindow):
             conn.commit()
             conn.close()
 
+    def delete_data(self):
+        reply = QMessageBox.question(self, '确认', '确定要清除数据吗?', QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+        if reply == QMessageBox.Yes:
+            os.system('rm data.db')
 
 def view_show():
     app = QtWidgets.QApplication(sys.argv)
