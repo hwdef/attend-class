@@ -27,6 +27,8 @@ class Ui_MainWindow(object):
         self.name_list.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.name_list.setFrameShadow(QtWidgets.QFrame.Raised)
         self.name_list.setObjectName("name_list")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.name_list)
+        self.verticalLayout.setObjectName("verticalLayout")
         self.gridLayout.addWidget(self.name_list, 0, 1, 2, 1)
         self.button = QtWidgets.QFrame(self.centralwidget)
         self.button.setMaximumSize(QtCore.QSize(16777215, 200))
@@ -63,13 +65,13 @@ class Ui_MainWindow(object):
         self.export_information_button.setFont(font)
         self.export_information_button.setObjectName("export_information_button")
         self.gridLayout_2.addWidget(self.export_information_button, 1, 3, 1, 1)
-        self.choose_class_button = QtWidgets.QPushButton(self.button)
-        self.choose_class_button.setMinimumSize(QtCore.QSize(0, 85))
+        self.comboBox = QtWidgets.QComboBox(self.button)
+        self.comboBox.setMinimumSize(QtCore.QSize(0, 85))
         font = QtGui.QFont()
         font.setPointSize(18)
-        self.choose_class_button.setFont(font)
-        self.choose_class_button.setObjectName("choose_class_button")
-        self.gridLayout_2.addWidget(self.choose_class_button, 0, 3, 1, 1)
+        self.comboBox.setFont(font)
+        self.comboBox.setObjectName("comboBox")
+        self.gridLayout_2.addWidget(self.comboBox, 0, 3, 1, 1)
         self.gridLayout.addWidget(self.button, 1, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -83,7 +85,6 @@ class Ui_MainWindow(object):
         self.import_information_button.setText(_translate("MainWindow", "导入信息"))
         self.check_in_button.setText(_translate("MainWindow", "签到"))
         self.export_information_button.setText(_translate("MainWindow", "导出数据"))
-        self.choose_class_button.setText(_translate("MainWindow", "选择班级"))
 
 
 if __name__ == "__main__":
