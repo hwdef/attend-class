@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'view/view.ui'
+# Form implementation generated from reading ui file 'view.ui'
 #
 # Created by: PyQt5 UI code generator 5.13.2
 #
@@ -22,6 +22,12 @@ class Ui_MainWindow(object):
         self.video.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.video.setFrameShadow(QtWidgets.QFrame.Raised)
         self.video.setObjectName("video")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.video)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.video_label = QtWidgets.QLabel(self.video)
+        self.video_label.setText("")
+        self.video_label.setObjectName("video_label")
+        self.verticalLayout_2.addWidget(self.video_label)
         self.gridLayout.addWidget(self.video, 0, 0, 1, 1)
         self.name_list = QtWidgets.QFrame(self.centralwidget)
         self.name_list.setFrameShape(QtWidgets.QFrame.StyledPanel)
