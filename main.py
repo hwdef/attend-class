@@ -61,6 +61,9 @@ class ui_main(QMainWindow, Ui_MainWindow):
             student = row[1]+row[0]
             self.checkBox = QtWidgets.QCheckBox(self.name_list)
             self.checkBox.setObjectName("checkBox")
+            font = QtGui.QFont()
+            font.setPointSize(20)
+            self.checkBox.setFont(font)
             self.checkBox.setText(student)
             self.verticalLayout.addWidget(self.checkBox)
             self.checkBox = QtWidgets.QCheckBox(self.name_list)
