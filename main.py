@@ -19,7 +19,7 @@ class ui_main(QMainWindow, Ui_MainWindow):
 
         Ui_MainWindow.setupUi(self, MainWindow)
         super().setupUi(MainWindow)
-        self.import_information_button.clicked.connect(self.choose_dir)
+        self.import_information_button.clicked.connect(self.save_information)
         self.clear_information_button.clicked.connect(self.delete_data)
         self.comboBox.addItem('')
         if os.path.exists('data.db'):
@@ -79,19 +79,23 @@ class ui_main(QMainWindow, Ui_MainWindow):
                 file_name_split = file_name.split(',')
                 file_name_split.append('')
                 data.append(file_name_split)
-            conn = sqlite3.connect('data.db')
-            c = conn.cursor()
-            c.execute('''CREATE TABLE information
-                    (
-                        id text,
-                        name text,
-                        class text,
-                        check_in text
-                    );''')
-            c.executemany("INSERT INTO information VALUES (?,?,?,?)", data)
-            conn.commit()
-            conn.close()
-            self.add_comboBox()
+            return data
+
+    def save_information(self):
+        data = self.choose_dir()
+        conn = sqlite3.connect('data.db')
+        c = conn.cursor()
+        c.execute('''CREATE TABLE information
+                (
+                    id text,
+                    name text,
+                    class text,
+                    check_in text
+                );''')
+        c.executemany("INSERT INTO information VALUES (?,?,?,?)", data)
+        conn.commit()
+        conn.close()
+        self.add_comboBox()
 
     def delete_data(self):
         reply = QMessageBox.question(self, '确认', '确定要清除数据吗?', QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
