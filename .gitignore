@@ -4,3 +4,4 @@ __pycache__
 .idea
 images
 data.db
+.csv
